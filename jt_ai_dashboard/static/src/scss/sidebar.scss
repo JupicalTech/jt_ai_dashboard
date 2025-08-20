@@ -1,0 +1,84 @@
+// ===== SIDEBAR WRAPPER =====
+.jt-prompt-sidebar {
+  position: fixed;
+  left: 0;
+  width: 320px;
+  height: calc(100% - 60px);
+  background: #f8f9fa;
+  border-left: 1px solid #dee2e6;
+  overflow-y: auto;
+  padding: 1rem;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+
+  // Slide sidebar out of view
+  &.hidden {
+    transform: translateX(-100%);
+  }
+
+  // Sidebar title
+  .sidebar-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  // Sidebar history items
+  .history-item {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+
+    .prompt,
+    .response {
+      font-size: 0.875rem;
+    }
+
+    .timestamp {
+      font-size: 0.75rem;
+      color: #999;
+    }
+  }
+}
+
+// ===== TOGGLE BUTTON FLOATING OUTSIDE SIDEBAR =====
+.sidebar-floating-toggle {
+  position: fixed;
+  font-weight: bold;
+  top: 65px;
+  left: 320px; // Sidebar width when visible
+  width: 35px;
+  height: 35px;
+  background: #714B67;
+  color: white;
+  border-radius: 4px 0 0 4px;
+  border: none;
+  z-index: 1102;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    left 0.3s ease-in-out,
+    background-color 0.2s ease-in-out;
+  border-radius: 50%;
+  i {
+    font-size: 16px;
+  }
+
+  &:hover {
+    background-color: #5a6268;
+  }
+}
+
+// ===== DYNAMIC POSITIONING BASED ON SIDEBAR STATE =====
+// When sidebar is hidden, move toggle button to the screen edge
+.sidebar-closed .sidebar-floating-toggle {
+  left: 0;
+}
+
+.jt_ai_dashboard_container {
+    background-color: white !important;
+    color: black;  /* optional for readability */
+    min-height: 100%;  /* ensures full coverage */
+}

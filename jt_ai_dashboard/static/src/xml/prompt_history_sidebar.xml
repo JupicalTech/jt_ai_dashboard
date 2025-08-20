@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="jt_ai_dashboard.PromptHistorySidebar" owl="1">
+        <div t-attf-class="jt-prompt-sidebar #{props.showSidebar ? '' : 'hidden'}">
+            <!-- <button class="btn-toggle-sidebar" t-on-click="props.onToggleSidebar">
+                <i class="fa" t-att-class="props.showSidebar ? 'fa-angle-left' : 'fa-angle-right'"/>
+            </button> -->
+            
+            <h4 class="sidebar-title">Prompt History</h4>
+
+            <t t-if="state.loading">
+                <div class="loading">Loading...</div>
+            </t>
+
+            <ul t-else="">
+                <t t-foreach="state.history" t-as="item" t-key="item.id">
+                    <li class="history-item">
+                        <p class="timestamp"><t t-esc="item.create_date"/></p>
+                        <p class="prompt"><strong>Prompt:</strong> <t t-esc="item.prompt"/></p>
+                        <!-- <p class="response"><strong>Response:</strong> <t t-esc="item.response"/></p> -->
+                    </li>
+                </t>
+            </ul>
+        </div>
+    </t>
+</templates>
+
+
+
+
+
+<!-- <templates id="jt_ai_dashboard_prompt_templates" xml:space="preserve">
+    <t t-name="jt_ai_dashboard.PromptHistorySidebar" owl="1">
+        <div class="jt-prompt-sidebar">
+            <h4 class="sidebar-title">Prompt History</h4>
+            <t t-if="state.loading">
+                <div class="loading">Loading...</div>
+            </t>
+            <ul t-else="">
+                <t t-foreach="state.history" t-as="item" t-key="item.create_date">
+                    <li class="history-item">
+                        <p class="timestamp"><t t-esc="item.create_date"/></p>
+                        <p class="prompt"><strong>Prompt:</strong> <t t-esc="item.prompt"/></p>
+                        <p class="response"><strong>Response:</strong> <t t-esc="item.response"/></p>
+                    </li>
+                </t>
+            </ul>
+        </div>
+    </t>
+</templates> -->

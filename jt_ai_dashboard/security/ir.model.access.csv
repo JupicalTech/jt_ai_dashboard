@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+jt_prompt_access,jt_access,model_jt_prompt,,1,1,1,1
+jt_prompt_history_access,jt_history_access,model_jt_prompt_history,,1,0,1,0
+access_groq_prompt_user,access_groq_prompt_user,model_groq_prompt,,1,1,1,1
