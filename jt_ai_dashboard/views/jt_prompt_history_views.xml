@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_jt_prompt_history_tree" model="ir.ui.view">
+        <field name="name">jt.prompt.history.tree</field>
+        <field name="model">jt.prompt.history</field>
+        <field name="arch" type="xml">
+            <tree string="Prompt History">
+                <field name="create_date"/>
+                <field name="user_id"/>
+                <field name="prompt"/>
+                <field name="response"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_jt_prompt_history_form" model="ir.ui.view">
+        <field name="name">jt.prompt.history.form</field>
+        <field name="model">jt.prompt.history</field>
+        <field name="arch" type="xml">
+            <form string="Prompt History">
+                <sheet>
+                    <group>
+                        <field name="create_date" readonly="1"/>
+                        <field name="user_id" readonly="1"/>
+                        <field name="prompt" readonly="1"/>
+                        <field name="response" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_jt_prompt_history" model="ir.actions.act_window">
+        <field name="name">Prompt History</field>
+        <field name="res_model">jt.prompt.history</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('user_id', '=', uid)]</field>
+    </record>
+
+    <menuitem id="menu_prompt_history"
+              name="Prompt History"
+              parent="menu_ai_prompt_root"
+              action="action_jt_prompt_history"
+              sequence="20"/>
+</odoo>
